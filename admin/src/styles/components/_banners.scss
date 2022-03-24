@@ -1,0 +1,35 @@
+.banners {
+  margin-bottom: remCal(70);
+  .banner-item {
+    display: block;
+    overflow: hidden;
+    @include mq(sm) {
+      margin-bottom: emCal(14, 15);
+    }
+    &:hover {
+      img {
+        transform: scale(1.03) rotate(-0.5deg);
+      }
+    }
+    img {
+      @include imgCenter;
+      transition: $transition;
+    }
+  }
+}
+
+
+//$initialColor:#1c00bb;
+
+.header__banner{
+    height: 300px;
+    //background:#00717e;
+    //background:linear-gradient(132deg,$initialColor 0%,$lighnenColor 100%);
+    
+}
+
+.home-banner{
+  .onScroll{
+    
+  }
+}

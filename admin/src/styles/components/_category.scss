@@ -1,0 +1,44 @@
+.categories{
+    /* display: flex;
+    flex-direction: column;
+    align-items: end; */
+}
+
+.addCategory-form{
+    width:100%;
+    display: flex;
+}
+
+.addTag-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-uploader{
+    width: 100%;
+    height: 100%;
+    .ant-upload{
+        width: 100%;
+        height: 100%;
+    }
+}
+.imagePreview{
+    position: relative;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &>span{
+        font-weight: bolder;
+        color: #fff;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: #363636bf;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+    }
+}

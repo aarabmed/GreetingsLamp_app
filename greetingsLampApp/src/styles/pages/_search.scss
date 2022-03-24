@@ -1,0 +1,117 @@
+.search-banner{
+    background: linear-gradient(135deg,#03bca1 0%,#01df7c 100%);
+
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+        
+    .search-page-select{
+      line-height: 2.2;
+      border-radius: 40px;
+      border: unset;
+      padding: 4.9px 5px;
+      .ant-input{
+        border-radius: 12px;
+        margin-left: 10px;
+      }
+
+      &:hover{
+        box-shadow: gray 0px 0px 6px 2px;
+        border: unset;
+      }
+      .ant-input-suffix {
+        margin-left: 4px;
+        border-radius: 30px;
+        width: 40px;
+        justify-content: center;
+        .anticon{
+            width: 37px;
+            height: 37px;
+            line-height: 2.2;
+            border-radius: 16px;
+        }
+        &:hover{
+          background: #e6e6fa;
+          transition: ease-in .3s;
+        }
+      }
+
+    }
+}
+
+.search-filters {
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 5px 20px;
+  width: 100%;
+  justify-content: center;
+  height: 60px;
+  display: flex;
+
+  .wrapper {
+    display: flex;
+    flex-flow: row;
+    width: 80%;
+    justify-content: space-around;
+    align-self: center;
+
+    .filters {
+      width: 50%;
+      ul{
+        display: flex;
+        width: 100%;
+        margin: 0;
+        li{
+          width: 118px;
+          text-align: center;
+          line-height: 2;
+          font-size: 16px;
+          font-weight: 500;
+          display: block;
+          cursor: pointer;
+          border-radius: 13px;
+          transition: ease-in 0.4s;
+          margin: 3px;
+        }
+        li:not(.active):hover{
+          background-color: #f0f0f0;
+          transition: ease-in 0.3s;
+        }
+        .active{
+          background-color: #d4ded7;
+          border-radius: 13px;
+          transition: ease-in 0.4s;
+        }
+      }
+    }
+    .keyword {
+      line-height: 2;
+      p{
+        margin: 0;
+        span{
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+.search-input{
+  .ant-form-item-control{
+    .ant-form-item-control-input{
+      .ant-form-item-control-input-content{
+        .ant-input-affix-wrapper-focused{
+          box-shadow: gray 0px 0px 6px 2px;
+          border: unset;
+        }
+      }
+    }
+  }
+}
+

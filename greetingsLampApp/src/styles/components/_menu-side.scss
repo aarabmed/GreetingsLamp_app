@@ -1,0 +1,195 @@
+.menu-side {
+  .ant-drawer-header {
+    padding: emCal(16, 25) emCal(16, 40);
+    display: flex;
+    .ant-drawer-title {
+      @include typo($fsz: emCal(16, 20), $fw: 700);
+    }
+    .ant-drawer-close {
+      position: unset;
+      margin-left: auto;
+      padding: 0;
+      p {
+        @include typo($fsz: emCal(16, 15));
+        margin-right: emCal(15, 5);
+        display: inline-block;
+      }
+    }
+  }
+  .ant-drawer-body {
+    padding: emCal(16, 25) emCal(16, 40);
+  }
+  
+  &-mobile{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    
+    .active{
+      background: #E30433 !important;
+    }
+    li{
+      padding: 10px;
+      cursor: pointer;
+      list-style: none;
+      a{
+        color:black
+      }
+      
+    }
+    li:hover{
+      background-color:#E7E7E775
+    }
+  }
+
+   
+}
+
+.menuIcon {
+  width: 20px !important;
+  padding: 1px;
+  margin-right: 3px;
+}
+
+.sidebar{
+  .sidebar_menu{
+    border-right: unset;
+    
+    .ant-menu-item-selected{
+        background-color: unset;
+        color:rgba(0, 0, 0, 0.85);
+    }
+    .ant-menu-submenu-title{
+      //display: contents;
+    }
+
+    /* 
+    .ant-menu-submenu > .ant-menu-submenu-title{
+      height: 35px !important;
+      line-height: 35px !important;
+     // padding-left: 7px !important;
+    }
+    
+    .ant-menu-sub.ant-menu-inline{
+      .sidebar_submenu_item{
+        height: 35px;
+        line-height: 35px;
+        padding-left: 35px !important;
+        
+      }
+      
+    } */
+
+    .sidebar_submenu_item{
+      height: 30px;
+      line-height: 30px;
+      margin-bottom: unset;
+
+        .ant-menu-submenu-title{
+          height: 30px !important;
+          line-height: 30px !important;
+        // padding-left: 7px !important;
+        padding-left: 24px;
+        }
+      }
+
+      .sidebar_submenu_group{
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: unset;
+        display: contents;
+        .ant-menu-submenu-title{
+          height: 30px !important;
+          line-height: 30px !important;
+         // padding-left: 7px !important;
+         padding-left: 24px;
+        }
+      
+      }
+
+      .sidebar_submenu_item_active{
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: unset;
+        background-color: #ffeef2;
+        color:rgba(0, 0, 0, 0.85);
+        font-weight: bold;
+        .ant-menu-submenu-title{
+          height: 30px !important;
+          line-height: 30px !important;
+        // padding-left: 7px !important;
+        padding-left: 24px;
+        }
+      }
+
+      .sidebar_submenu_group_active::after{
+        content: unset !important;
+      }
+
+      .sidebar_submenu_item_active::after{
+        content: unset !important;
+      }
+      .sidebar_submenu_item::after{
+        content: unset !important;
+      }
+
+      .sidebar_submenu_group_active{
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: unset;
+        background-color: #ffeef2;
+        //font-weight: bold;
+        display: contents;
+        .ant-menu-submenu-title{
+            background-color: #ffeef2;
+            font-weight: bold;           
+            color:rgba(0, 0, 0, 0.85); 
+            height: 30px !important;
+            line-height: 30px !important;
+          // padding-left: 7px !important;
+            padding-left: 24px;
+          }
+      }
+    
+
+  }
+  
+}
+
+
+.submenu-manager{
+
+  .ant-collapse{
+
+    background-color: unset;
+    border: unset;
+    border-bottom: unset;
+    border-radius: unset;
+    .ant-collapse-item{
+      border: unset;
+      
+      .ant-collapse-header{
+        &:hover{background: #d5d5d5;}
+      }
+      
+    }
+    .ant-collapse-content{
+      border: unset;
+      background-color: #00000026;
+      margin-left: 15px;
+      .ant-collapse-content-box{
+        padding:unset;
+      }
+      li{
+        &:hover{background: #d5d5d5;}
+      }
+    }
+  }
+
+}
+.menu-manager-item{
+  &:hover{background: #d5d5d5;}
+  
+}
+

@@ -1,0 +1,13 @@
+module.exports={
+    INVITATIONS:'/api/invitations',
+    CARDS:'/api/cards',
+    SEARCH:'/api/cards/search',
+    USERS:'/api/users',
+    TAGS:'/api/tags',
+    COLLECTIONS:'/api/collections',
+    CATEGORIES:'/api/categories',
+    SUB_CATEGORIES:'/api/sub-categories',
+    SUB_CATEGORIES_CHILD:'/api/sub-items',
+    SIGNUP:'/api/account/signup',
+    LOGIN:'/api/account/login',
+}

@@ -1,0 +1,20 @@
+.error404-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  
+
+    .content-error{
+        height: 460px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 370px;
+        padding: 10px;
+        justify-content: center;
+        svg{
+            height: 270px;
+        }
+    }
+
+}

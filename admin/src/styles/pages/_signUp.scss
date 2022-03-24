@@ -1,0 +1,44 @@
+.signup-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    .signup-wrapper{
+        width: 34%;
+        display: flex;
+        flex-flow: column;
+
+        .signup-header{
+            margin: 20px 0;
+            padding: 15px;
+            img {
+                margin: 15px auto;
+                display: block;
+                height: 90px;
+            }
+            h4{
+                border-bottom: 1px solid #989898;
+                padding-bottom: 5px;
+            }
+            p{
+                word-spacing: 2px;
+                font-size: 13px;
+            }
+            
+        }
+        
+        .main{
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            height: 270px;
+            width: 100%;
+            margin: 20px 0px;
+            >.ant-row{
+                text-align: end;
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+}

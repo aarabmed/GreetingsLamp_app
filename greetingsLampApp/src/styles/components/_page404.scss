@@ -1,0 +1,19 @@
+.content-error {
+    display: flex;
+    height: 630px;
+    flex-direction: column;
+    svg{
+        width: 630px;
+        margin: auto;
+        height: 560px;
+        padding: 10px;
+        margin-top: 40px;
+    }
+    button{
+        width: 150px;
+        align-self: center;
+        position: relative;
+        bottom: 339px;
+        right: -65px;
+    }
+}
