@@ -72,8 +72,12 @@ const onMouseLeaveEvent =()=>{
 
 
 React.useEffect(()=>{
+  videoBanner.current.src="https://ik.imagekit.io/gl/videos/home-banner-video_x-OMJLTyv.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1648670813374"
   videoBanner.current.loop=true;
   videoBanner.current.autoplay=true;
+  videoBanner.current.muted=true;
+  videoBanner.current.play()
+
   onScroll();
   window.onscroll = onScroll
   
@@ -101,7 +105,6 @@ const carouselInvitationsProps =  {
          <Menu homepage={true} Elements={headerData.menuData} myRef={menuRef} onMouseOver={onMouseOverEvent} onMouseLeave={onMouseLeaveEvent} logo={menuLogo} /> 
           <div className="home-banner"> 
             <video ref={videoBanner}>
-                <source src={"/assets/videos/home-banner-video2.mp4"} type="video/mp4"/>
             </video>
             
             <div className="search-section">

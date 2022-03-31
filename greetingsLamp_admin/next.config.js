@@ -1,6 +1,6 @@
-const withLess = require('next-with-less');
-
-const withImages = require('next-images')
+const withSass = require("@zeit/next-sass");
+const withLess = require("@zeit/next-less");
+const withCSS = require("@zeit/next-css");
 
 const withPlugins = require('next-compose-plugins');
 const isProd = process.env.NODE_ENV === "production";
@@ -10,25 +10,19 @@ if (typeof require !== "undefined") {
   require.extensions[".less"] = (file) => {};
 }
 
-const Images = withImages({
-  //exclude: path.resolve(__dirname, 'src/assets/images'),
-  webpack(config, options) {
-    return config
-  }
-})
 
-
-
-const WithLess =withLess({
-  lessLoaderOptions: {
-  },
-  cssLoaderOptions: {
-    importLoaders: 3,
-    localIdentName: '[local]___[hash:base64:5]'
-  },
-  
-})
-
+const CssFunc = withCSS(
+  withLess(
+    withSass({
+      env: {
+        PUBLIC_URL: "",
+      },
+      lessLoaderOptions: {
+        javascriptEnabled: true,
+      }
+    })
+  )
+)
 
 const nextConfig = {
   async rewrites() {
@@ -47,8 +41,7 @@ const nextConfig = {
 
 module.exports = withPlugins( 
   [
-    Images,
-    WithLess,
+    [CssFunc],
   ],
   nextConfig,
 );
