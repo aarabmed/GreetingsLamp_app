@@ -629,8 +629,7 @@ const ViewCard:React.ForwardRefRenderFunction<ModalProps,Props> =({item,runMutat
                 <IKContext urlEndpoint="https://ik.imagekit.io/gl">
                   <IKImage path={card.image.filePath} 
                   transformation={[{
-                      "height": "595",
-                      "width": "407"
+                      "width": "500"
                     }]}
                     loading="lazy"
                     lqip={{ active: true }}

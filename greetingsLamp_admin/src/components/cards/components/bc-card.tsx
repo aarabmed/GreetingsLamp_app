@@ -62,8 +62,7 @@ const Index:React.FC<CardProps> & CardSubComponents =({width,item,cover,onClick,
             <IKContext urlEndpoint="https://ik.imagekit.io/gl">
                  <IKImage path={cover} 
                  transformation={[{
-                    "height": "291",
-                    "width": "200"
+                    "width": "350"
                   }]}
                   loading="lazy"
                   lqip={{ active: true }}
