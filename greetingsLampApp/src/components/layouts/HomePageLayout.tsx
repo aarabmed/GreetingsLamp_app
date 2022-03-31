@@ -77,10 +77,8 @@ React.useEffect(()=>{
   videoBanner.current.autoplay=true;
   videoBanner.current.muted=true;
   videoBanner.current.play()
-
   onScroll();
   window.onscroll = onScroll
-  
 },[]) 
 
 const submitSearch =({search})=>{

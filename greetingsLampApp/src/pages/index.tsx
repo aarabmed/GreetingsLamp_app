@@ -13,10 +13,10 @@ export default function Index(props) {
  
 export const getStaticProps: GetStaticProps = async (context) => {
 
-  const res = await axios.get('http://localhost:3000/collections')
+  const res = await axios.get(`${process.env.API_BASE_URL}/collections`)
   const menu = await FetchMenu(res)
 
-  const {data,status} = await axios.get('http://localhost:3000/cards/?sort=popular&count=20')
+  const {data,status} = await axios.get(`${process.env.API_BASE_URL}/cards/?sort=popular&count=20`)
 
   if (!res) {
     return {

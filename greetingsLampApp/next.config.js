@@ -1,5 +1,4 @@
 const withLess = require('next-with-less');
-
 const withImages = require('next-images')
 
 const withPlugins = require('next-compose-plugins');
@@ -16,7 +15,6 @@ const Images = withImages({
     return config
   }
 })
-
 
 
 const WithLess =withLess({

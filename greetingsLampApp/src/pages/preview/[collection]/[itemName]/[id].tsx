@@ -32,8 +32,7 @@ const axiosHeader = (value?)=>{
 const Index = ({publicLayoutData,mainContent}) => {
     const { query,push } = useRouter();
      
-    const [preview, setPreview] = useState(false)
- 
+    const [visible, setVisible] = useState(false); 
 
     const {card}  = mainContent
     
@@ -54,13 +53,13 @@ const Index = ({publicLayoutData,mainContent}) => {
         }).catch(e=>{
           console.log('Error:',e)
         })
-      saveAs(`http://localhost:5000/${card.image.path}`, card.slug )
+      saveAs(card.image.url, card.slug )
     }
 
     const similarCards = card.similarCards.map(card=>
       <Card 
       key={card._id}
-      cover={card.image.path}
+      cover={card.image.filePath}
       itemId={card._id}
       width="230px"
       currentPath={`/preview/${query.collection}/${card.slug}`}
@@ -106,10 +105,9 @@ const Index = ({publicLayoutData,mainContent}) => {
                   </div>
                   <div className="mask"></div>
                   <Image
-                    preview={{src:card.image.path,onVisibleChange: vis => setPreview(vis)}}
+                    preview={{visible,src:`https://ik.imagekit.io/gl${card.image.filePath}`,onVisibleChange: vis => setVisible(vis)}}
                     width={200}
-                    src={preview?null:card.image.path}
-                  
+                    src={`https://ik.imagekit.io/gl/tr:h-470${card.image.filePath}`}
                     onClick={onImageClick}
                     draggable={false}
                     onContextMenu={(e)=> e.preventDefault()}
@@ -157,9 +155,9 @@ export const getServerSideProps =async ({req,res,params}) => {
 
   
       
-      const collectionResponse = await axios.get('http://localhost:5000/api/collections');
+      const collectionResponse = await axios.get(`${process.env.API_BASE_URL}/collections`);
       
-      const cardResponse = await axios.get(`http://localhost:5000/api/cards/${params.id}`);
+      const cardResponse = await axios.get(`${process.env.API_BASE_URL}/cards/${params.id}`);
       const menu  = await FetchMenu(collectionResponse)
 
   

@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import axios from "axios";
+import { IKImage, IKContext } from 'imagekitio-react'
 
 interface CardProps {
     cover:string,
@@ -65,8 +66,7 @@ const Index:React.FC<CardProps> & CardSubComponents =({width,height,itemId,cover
                 body,
                 axiosHeader(),
               ).then(res=>{
-                console.log('RES:::',res)
-              }).catch(e=>{
+            }).catch(e=>{
                 console.log('Error:',e)
               })
     }
@@ -77,7 +77,15 @@ const Index:React.FC<CardProps> & CardSubComponents =({width,height,itemId,cover
         <div className='bc-card-img'>
             <Link href={currentPath+'/'+itemId}>
                 <a onClick={incrementViews}>
-                    <img alt='example' src={cover} />
+                    <IKContext urlEndpoint="https://ik.imagekit.io/gl">
+                        <IKImage path={cover} 
+                        transformation={[{
+                            "width": "350"
+                        }]}
+                        loading="lazy"
+                        lqip={{ active: true }}
+                        />
+                    </IKContext>
                 </a>
             </Link>
         </div>

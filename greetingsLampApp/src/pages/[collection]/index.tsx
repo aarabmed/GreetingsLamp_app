@@ -4,11 +4,12 @@ import axios from "axios";
 import Head from "next/head";
 import { Row } from "antd";
 import Header from "components/header";
-import {TitleSection} from "./style/title.style"
+import {TitleSection} from "components/style/title.style"
 import Link from "next/link";
 import { FetchMenu } from "common/utils";
 import Footer from "components/footer/Footer";
 import Page404 from "components/layouts/Page404";
+import { IKImage, IKContext } from 'imagekitio-react'
 
 
 
@@ -25,7 +26,17 @@ export default function index(props) {
     const CardsBySubcategories = ({item})=>{
        const subCategory = props.mainContent.data.find(el=>el._id===item)
        if(subCategory)return   subCategory.cards.map((card,index)=>
-          <img key={card._id} className={`thumb-img-${index}`} src={card.image} />
+          <IKContext urlEndpoint="https://ik.imagekit.io/gl">
+              <IKImage path={card.image} 
+              key={card._id}
+              className={`thumb-img-${index}`}
+              transformation={[{
+                  "width": "300"
+              }]}
+              loading="lazy"
+              lqip={{ active: true }}
+              />
+          </IKContext>
         )
         return <img className="thumb-img-notfound" src="/assets/images/image-not-found.png"/>
     } 
@@ -70,15 +81,15 @@ export default function index(props) {
 
 export const getServerSideProps = async ({params}) => {
 
-    const res = await axios.get('http://localhost:5000/api/collections')
+    const res = await axios.get(`${process.env.API_BASE_URL}/collections`)
     let type
 
     switch (params.collection) {
       case 'cards':
-          type="Card"
+          type="card"
         break;
       case 'invitations':
-          type="Invitation"
+          type="invitation"
         break;
       default:
           type=''
@@ -101,7 +112,7 @@ export const getServerSideProps = async ({params}) => {
 
     
 
-    const cardsBySubcategories = await axios.get(`http://localhost:5000/api/cards/bysub-categories?type=${type}`)
+    const cardsBySubcategories = await axios.get(`${process.env.API_BASE_URL}/cards/bysub-categories?type=${type}`)
 
     
   
