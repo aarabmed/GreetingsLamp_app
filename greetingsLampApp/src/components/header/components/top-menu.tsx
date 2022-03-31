@@ -2,6 +2,7 @@ import Link from "next/link";
 import React ,{ forwardRef} from "react";
 import { Menu } from 'antd';
 import Image from 'next/image'
+import { IKImage, IKContext } from 'imagekitio-react'
 
 const { SubMenu } = Menu;
 
@@ -35,12 +36,14 @@ const Navigation = forwardRef<React.Component, Props>(({onMouseLeave,onMouseOver
               )}
             </Menu.ItemGroup>
             <div className="image-pop-menu" >
-                    <Image
-                      src={logo}
-                      alt="Logo"
-                      height="70"
-                      width="170"
+                <IKContext urlEndpoint="https://ik.imagekit.io/gl">
+                    <IKImage 
+                      path={option.image.filePath} 
+                      transformation={[{
+                          "width": "250"
+                      }]}
                     />
+                </IKContext>
             </div>
           </SubMenu>
         )

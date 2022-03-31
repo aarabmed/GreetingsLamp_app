@@ -20,7 +20,7 @@ export default function index({publicLayoutData,mainContent,menuData}) {
     const Cards = mainContent.cards.map(card=>{
       return(<Card 
               key={card._id}
-              cover={card.image.path}
+              cover={card.image.filePath}
               itemId={card._id}
               width="230px"
               currentPath={`/preview/${query.collection}/${card.slug}`}
@@ -89,7 +89,7 @@ export const getServerSideProps = async (ctx) => {
       }
     }
 
-    const res = await axios.get('http://localhost:5000/api/collections')
+    const res = await axios.get(`${process.env.API_BASE_URL}/collections`)
    
     const menu = await res.data.collections.filter((col)=>{
       if(col.status===true){
@@ -121,7 +121,7 @@ export const getServerSideProps = async (ctx) => {
     }
 
 
-    cardsResponse = await axios.get(`http://localhost:5000/api/cards/?subCategory=${subCategory._id}&page=${ctx.query.page}&size=24`)
+    cardsResponse = await axios.get(`${process.env.API_BASE_URL}/cards/?subCategory=${subCategory._id}&page=${ctx.query.page}&size=24`)
 
 
     const sidebar = {

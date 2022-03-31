@@ -159,7 +159,7 @@ export const getServerSideProps = async (context) => {
         }
     }
 
-    const resCollections = await axios.get(`http://localhost:5000/api/collections`)
+    const resCollections = await axios.get(`${process.env.API_BASE_URL}/collections`)
 
     const menu = await FetchMenu(resCollections)
    

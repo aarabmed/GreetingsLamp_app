@@ -59,7 +59,6 @@ function PublicSidebar({props}) {
   const onCategoryClick = (key) =>{
 
     const { collection} = router.query;
-    console.log('Query:',router.query)
     router.push({
       pathname:'/[collection]/[category]',
       query:{
@@ -73,7 +72,6 @@ function PublicSidebar({props}) {
   const onSubCategoryChildClick = ({key}) =>{
 
     const { collection,category,subCategory} = router.query;
-    console.log('Query:',router)
 
      router.push({
       pathname:`/[collection]/[category]/[subCategory]/[subCategoryChild]`,

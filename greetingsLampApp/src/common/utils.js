@@ -36,8 +36,7 @@ export const FetchMenu = async (res) =>{
     }
   }).map(col=>{
     if(col.category){
-      const image = { path:col.image.path}
-      return ({_id:col._id,backgroundColor:col.backgroundColor,image:image,name:col.name,title:col.title,description:col.description,slug:col.slug,category:col.category.filter(cat=>cat.status===true).map(cat=>{
+      return ({_id:col._id,backgroundColor:col.backgroundColor,image:col.image,name:col.name,title:col.title,description:col.description,slug:col.slug,category:col.category.filter(cat=>cat.status===true).map(cat=>{
         if(cat.subCategory){
           return({_id:cat._id,backgroundColor:cat.backgroundColor,name:cat.name,title:cat.title,slug:cat.slug,subCategory:cat.subCategory.filter(e=>e.status===true)
             .map(sub=>({_id:sub._id,backgroundColor:sub.backgroundColor,title:sub.title,name:sub.name,slug:sub.slug}))})

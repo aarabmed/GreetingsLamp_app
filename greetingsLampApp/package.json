@@ -1,13 +1,13 @@
 {
-  "name": "birthday-gift",
+  "name": "greetingslamp_app",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev-gl": "nodemon server.js",
     "build": "next build",
-    "start": "next start -p 3000",
-    "heroku-postbuild": "npm run build"
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build --prod"
   },
+  "author": "AARAB MOHAMMED & BOUBOUH KARIM",
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
     "@ant-design/pro-form": "^1.15.4",
@@ -27,6 +27,7 @@
     "form-data": "^4.0.0",
     "http-proxy-middleware": "^1.0.6",
     "image-size": "^1.0.1",
+    "imagekitio-react": "^1.1.0",
     "immutable": "^4.0.0",
     "json-immutable": "^0.5.0",
     "less": "^3.13.1",
@@ -54,12 +55,12 @@
     "swr": "^0.4.0",
     "uuid": "^8.3.0",
     "webpack": "^4.0.0",
-    "yarn": "^1.22.17"
+    "yarn": "^1.22.17",
+    "next-images": "^1.8.4"
   },
   "devDependencies": {
     "@types/file-saver": "^2.0.5",
     "@types/node": "^14.14.28",
-    "next-images": "^1.8.4",
     "typescript": "^4.3.2"
   }
 }

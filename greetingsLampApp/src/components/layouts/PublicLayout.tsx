@@ -45,7 +45,6 @@ function Layout({
      reportWindowSize()
   },[])
 
- //console.log('props:!!!',data)
   
   return (
     <>

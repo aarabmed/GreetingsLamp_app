@@ -14,8 +14,11 @@ const { Body } = Card
 SwiperCore.use([EffectFlip, Navigation, Pagination,]);
 type card ={
     _id:string,
-    image:string,
-    title:string,
+    image:{
+      filePath?:string
+      thumbnailUrl?:string
+    },
+    title:string, 
     slug:string,
     orientation?:string
 }
@@ -63,7 +66,7 @@ const Index=({title,subTitle,items}:sliderProps)=>{
             >
                     {items.map(item=><SwiperSlide key={item._id}>
                         <Card 
-                            cover={item.image}
+                            cover={item.image.filePath}
                             width='120'
                             height={item.orientation!=='portrait'?'174':'auto'}
                             itemId={item._id}

@@ -1,11 +1,5 @@
 const withLess = require('next-with-less');
-const lessToJS = require('less-vars-to-js');
-const cloneDeep = require("clone-deep");
-
 const withImages = require('next-images')
-const fs =require('fs')
-const path = require('path');
-const { readFileSync, existsSync } = require('fs');
 
 const withPlugins = require('next-compose-plugins');
 const isProd = process.env.NODE_ENV === "production";
@@ -22,12 +16,6 @@ const Images = withImages({
   }
 })
 
-const themeVariables = lessToJS(
-  fs.readFileSync(
-    path.resolve(__dirname, './src/styles/antd.less'),
-    'utf8'
-  )
-);
 
 const WithLess =withLess({
   lessLoaderOptions: {
@@ -41,6 +29,14 @@ const WithLess =withLess({
 
 
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://greetingslamp-api.herokuapp.com/:path*',
+      },
+    ]
+  },
   api: {
     externalResolver: true,
   },

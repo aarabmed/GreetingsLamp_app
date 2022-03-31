@@ -72,11 +72,13 @@ const onMouseLeaveEvent =()=>{
 
 
 React.useEffect(()=>{
+  videoBanner.current.src="https://ik.imagekit.io/gl/videos/home-banner-video_x-OMJLTyv.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1648670813374"
   videoBanner.current.loop=true;
   videoBanner.current.autoplay=true;
+  videoBanner.current.muted=true;
+  videoBanner.current.play()
   onScroll();
   window.onscroll = onScroll
-  
 },[]) 
 
 const submitSearch =({search})=>{
@@ -101,7 +103,6 @@ const carouselInvitationsProps =  {
          <Menu homepage={true} Elements={headerData.menuData} myRef={menuRef} onMouseOver={onMouseOverEvent} onMouseLeave={onMouseLeaveEvent} logo={menuLogo} /> 
           <div className="home-banner"> 
             <video ref={videoBanner}>
-                <source src={"/assets/videos/home-banner-video2.mp4"} type="video/mp4"/>
             </video>
             
             <div className="search-section">
@@ -119,7 +120,7 @@ const carouselInvitationsProps =  {
                 <h3>Fabulous Cards</h3>
                 <p>with our cards collection, your precious events are more memorable</p>
                 <p>Check out our special events cards selections</p>
-                <Button shape="round" ghost>View cards</Button>
+                <Button shape="round" ghost onClick={()=>router.push('/cards')}>View cards</Button>
               </div>
               <div className="image">
                 <img src="/assets/images/cards-section.png"/>
@@ -130,7 +131,7 @@ const carouselInvitationsProps =  {
               <div className="description">
                 <h3>Invitation Cards</h3>
                 <p>Browse our wide selection of online invitations cards and put your <br/>wedding, celebration, grand opening, or any other special event <br/> in the spotlight</p>
-                <Button shape="round" ghost>Explore invitations</Button>
+                <Button shape="round" ghost onClick={()=>router.push('/invitations')}>Explore invitations</Button>
               </div>
               <div className="image">
                 <img src="/assets/images/invitations-section.png"/>
