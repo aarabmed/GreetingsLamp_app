@@ -431,7 +431,7 @@ const ViewCard:React.ForwardRefRenderFunction<ModalProps,Props> =({item,runMutat
               } 
             }
             ).then(res=>{
-              console.log('DATA:',res)
+
               if (res.status===200) {
                 setIsEditMode(false)
                 setInitialFormData(true)

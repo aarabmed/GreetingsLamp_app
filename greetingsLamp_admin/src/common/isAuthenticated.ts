@@ -41,7 +41,7 @@ const withAuth = async (callback,dispatch) =>{
          return callback()
       }
   }
-  console.log('STATUS:',status)
+
   if(status===401){
      return countDown(dispatch)
   }
