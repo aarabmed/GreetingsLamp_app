@@ -10,8 +10,9 @@ const fidAnimation = css`
 export const BannerContainer =styled.div<{color:string}>`
 background:linear-gradient(132deg,${((div)=>ColorLignten(div.color,80))} 0%,${(div)=>div.color} 80%);
 width:100%;
-height: 270px; 
+height: 100%; 
 display:flex;
+align-items: center;
 flex-direction:collumn;
 img{
    height:100%;

@@ -19,16 +19,12 @@
 @import "components/banners";
 @import "components/login";
 @import "components/userModal";
-@import "components/cart-sidebar";
 @import "components/loading";
 @import "components/menu";
 @import "components/menu-side";
-@import "components/product";
-@import "components/quantity-selector";
 @import "components/subpages-sidebar";
 @import "components/top-nav";
 @import "components/ui";
-@import "components/wishlist-sidebar";
 @import "components/zoom-image";
 @import "components/admin";
 @import "components/user";
@@ -40,10 +36,6 @@
 @import "layouts/public_header";
 @import "layouts/public_sidebar";
 @import "layouts/product-detail";
-@import "layouts/shop";
-@import "layouts/shop-quickview";
 @import "layouts/modal";
 
 @import "pages/search";
-@import "pages/checkout-complete";
-@import "pages/checkout";

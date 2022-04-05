@@ -1,4 +1,20 @@
 
+.content-public.mobile{
+
+  .mobile-menu-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+
+
+
+
+
+
+
 .content-public {
   height: 100%;
   overflow: auto;
@@ -29,6 +45,11 @@
 
 .content-side{
   padding: 1rem 1rem 1rem 1rem;
+  flex: 1 0 auto;
+}
+
+.tablete .content-side{
+  min-height: 100vh;
 }
 
 .content-side-admin{

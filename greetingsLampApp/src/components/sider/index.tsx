@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import router, {useRouter} from "next/router"
+import React, { useEffect, useState } from "react";
+import  {useRouter} from "next/router"
 import { Col, Menu } from 'antd';
 import classNames from "classnames";
-
 import { MenuTitle } from "./index.style";
 const { SubMenu } = Menu;
 
@@ -13,12 +12,13 @@ interface Props {
 }
 
 
-const SidebarResponsive={ xs: 24, lg: 4 }
+const SidebarResponsive={/*  xs: 24, lg: 4  */}
 
 function PublicSidebar({props}) {
 
   const router = useRouter();
-  
+
+
   useEffect(()=>{
     
   },[])
@@ -97,12 +97,11 @@ function PublicSidebar({props}) {
   }
 
   return (
-    <Col {...SidebarResponsive} className="sidebar" >
+    
+      <Col {...SidebarResponsive} className="sidebar" >
           <MenuTitle onClick={()=>onCategoryClick(props.categoryActive.slug)} active={router.query.subCategory?true:false}>{props.categoryActive.name}</MenuTitle>
-          <Menu mode="inline" openKeys={[props.subCategoryActive[0].slug]} style={{ width: '100%' }} className={`sidebar_menu `}>
-            
+          <Menu mode="inline" openKeys={[props.subCategoryActive[0].slug]} style={{ width: '100%' }} className={`sidebar_menu `}> 
               {SideBarMenu(props.subCategories)}
-              
           </Menu>
      </Col>
   );

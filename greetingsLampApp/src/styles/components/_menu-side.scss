@@ -53,6 +53,7 @@
 }
 
 .sidebar{
+  width: 230px;
   .sidebar_menu{
     border-right: unset;
     
@@ -191,5 +192,109 @@
 .menu-manager-item{
   &:hover{background: #d5d5d5;}
   
+}
+
+
+.content-public.tablete{
+  
+
+  @media (max-width: 496px){
+    .bc-card {
+        width: 60%;
+        margin: 20px auto;
+        /* padding: 10px; */
+    }
+  }
+  
+  .gl-drawer{
+    min-width: 235px;
+    position: absolute;
+    z-index: 7;
+    background: white;
+    height: 100%;
+    transition: all .3s;
+
+    .drawer-wrapper{
+      height: 100%;
+      border-right: 1px solid #73717173;
+      z-index: 1000;
+      position: relative;
+      .sidebar{
+        box-shadow: unset;
+        height: 100%;
+        background: white;
+      }
+    }
+
+    button.ant-btn.ant-btn-primary.sb-drawer-button{
+      position: inherit;
+      z-index: 999;
+      top: 30%;
+      right: -33px;
+      width: 40px;
+    }
+
+    .gl-drawer-mask {
+      width: calc(100% + 500px);
+      height: 100%;
+      background: #00000073;
+      position: fixed;
+      z-index: 101;
+      overflow: hidden;
+      top: 0;
+      opacity: 1;
+    }
+  }
+}
+
+
+.content-public.mobile{
+  
+    .bc-card {
+        width: 60%;
+        margin: 20px auto;
+        /* padding: 10px; */
+    }
+  
+  
+  .gl-drawer{
+    min-width: 235px;
+    position: absolute;
+    z-index: 7;
+    background: white;
+    height: 100%;
+    transition: all .3s;
+
+    .drawer-wrapper{
+      height: 100%;
+      border-right: 1px solid #73717173;
+      z-index: 1000;
+      position: relative;
+      .sidebar{
+        box-shadow: unset;
+        height: 100%;
+        background: white;
+      }
+    }
+
+    button.ant-btn.ant-btn-primary.sb-drawer-button{
+      position: inherit;
+      z-index: 999;
+      top: 30%;
+      right: -33px;
+      width: 40px;
+    }
+
+    .gl-drawer-mask {
+      width: calc(100% + 500px);
+      height: 100%;
+      background: #00000073;
+      position: fixed;
+      z-index: 101;
+      overflow: hidden;
+      top: 0;
+      opacity: 1;
+    }
+  }
 }
 

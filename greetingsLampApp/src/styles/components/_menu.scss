@@ -230,6 +230,8 @@
     }
   
   .public__navigation{
+    width: 100%;
+    position: absolute;
     .navigation_container{
       background: none;
       position: relative;
@@ -287,5 +289,11 @@
       }
     }
   }
+
+  .fixed{
+    position: fixed;
+  }
   
 }
+
+

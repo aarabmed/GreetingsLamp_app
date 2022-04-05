@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from 'next/router';
 import axios from "axios";
 import Head from "next/head";
 import { Row } from "antd";
-import Header from "components/header";
+import DesktopHeader from "components/header";
 import {TitleSection} from "components/style/title.style"
 import Link from "next/link";
 import { FetchMenu } from "common/utils";
 import Footer from "components/footer/Footer";
 import Page404 from "components/layouts/Page404";
 import { IKImage, IKContext } from 'imagekitio-react'
+import { DeviceType } from "common/deviceType";
+import MobileNav from "components/header/mobile-nav";
+import Banner from "components/header/components/banner";
 
 
 
 export default function index(props) {
     const { query } = useRouter();
     
-
-
     const collection: any = query.collection
 
     if(props.mainContent.status===404)return<Page404 menu={[]}/>
@@ -40,6 +41,7 @@ export default function index(props) {
         )
         return <img className="thumb-img-notfound" src="/assets/images/image-not-found.png"/>
     } 
+
     const Sections = (selectedCollection)=>{  
       const SectionDiv = selectedCollection.category.map((cat,index)=>{
         return(
@@ -61,20 +63,36 @@ export default function index(props) {
           {SectionDiv}
         </div>
     }
-  return (
-    <>
-      <Head>
-          <title>Online cards collection '('free')' | Greetings Lamp </title>
-      </Head>
-      <div className="content-public">
-        <Row>
-            <Header {...props.headerData}/>
-        </Row>
-        <Sections {...selectedCollection}/>
-      </div>
-      <Footer/>
-    </>
-  );
+
+
+  
+    const device = DeviceType()
+
+    const MobileHeader = () =>{
+      return (
+        <div className="mobile-menu">
+          <MobileNav menuData={props.headerData.menuData}/>
+          {props.headerData.bannerData?<Banner bannerData={props.headerData.bannerData}/>:null}
+        </div>
+      )
+    }
+
+    const Navigation = ()=> device ?<MobileHeader />:<DesktopHeader {...props.headerData}/>
+
+    return (
+      <>
+        <Head>
+            <title>Online cards collection (free) | Greetings Lamp </title>
+        </Head>
+        <div className={`content-public ${device}`}>
+          <Row>
+              <Navigation/>
+          </Row>
+          <Sections {...selectedCollection}/>
+        </div>
+        <Footer/>
+      </>
+    );
 }
 
 

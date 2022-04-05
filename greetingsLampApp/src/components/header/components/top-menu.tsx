@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React ,{ forwardRef} from "react";
+import React ,{ forwardRef, useEffect, useState} from "react";
 import { Menu } from 'antd';
 import Image from 'next/image'
 import { IKImage, IKContext } from 'imagekitio-react'
@@ -16,6 +16,7 @@ type Props = {
 }
 
 const Navigation = forwardRef<React.Component, Props>(({onMouseLeave,onMouseOver,homepage,Elements,myRef,logo}:Props, ref) =>{
+  const [isMobile, setIsMobile] = useState(false);
 
   
   const handlMenu = (items)=>{  
@@ -49,8 +50,6 @@ const Navigation = forwardRef<React.Component, Props>(({onMouseLeave,onMouseOver
         )
       })
   }
-
-
 
 
   return (

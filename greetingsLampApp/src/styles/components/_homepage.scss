@@ -14,6 +14,7 @@
             display: flex;
             video{
               width: 100%;
+              z-index: -1;
             }
 
             .home-title{
@@ -36,7 +37,7 @@
 
             .search-section{
                 position: absolute;
-                top: 15vh; 
+                top: calc(11vw + 2px);
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -77,6 +78,7 @@
                 }
             }
         }
+        
     }
 
 
@@ -166,6 +168,7 @@
           flex-direction: column;
           align-self: center;
           align-items: center;
+          width: 50%;
           h3{
             font-size: 30px;
             font-weight: bold;
@@ -218,6 +221,304 @@
 
 
 }
+
+
+
+.home-page.mobile{
+
+  .home-header{
+    .home-banner{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+        .search-section{
+          position: absolute;
+          bottom: 0vw;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          .home-title {
+            width: 100%; 
+            text-align: center;
+            margin: 5px;
+          }
+          .search-form{
+            width: 40% !important;
+            margin: 0 auto;
+          }
+          .search-page-select .ant-input-suffix .anticon {
+            width: 30px;
+            height: unset;
+            line-height: 1;
+            border-radius: 16px;
+          }
+          .search-page-select {
+            line-height: 1;
+            border-radius: 40px;
+            border: unset;
+            padding: 0;
+            .ant-input-suffix {
+              margin-left: 0;
+              border-radius: 30px;
+              width: 22px;
+              justify-content: center;
+            }
+          }
+        }
+    }
+
+    .public__navigation{
+      .navigation_container{
+        position: absolute;
+      }
+    }
+
+  }
+  .ant-input-lg {
+    font-size: 11px;
+  }
+
+  .ant-btn > span {
+    display: block;
+    font-size: 12px;
+    line-height: -2;
+  }
+
+  .homepage-main-container .description{
+    .ant-btn {
+      opacity: 0.8;
+      width: unset !important;
+      margin-top: 10px !important;
+      border: 2px solid white;
+      font-weight: bold;
+      height: unset;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+    p {
+      margin-bottom: 5px;
+      font-size: 10px;
+      color: white;
+    }
+  }
+
+  .homepage-main-container .slider-header{
+
+    h3 {
+      font-size: 14px;
+      text-align: center;
+      width: 96%;
+    }
+    h2 {
+      font-size: 23px;
+      font-weight: 800;
+      margin: 0;
+    }
+  }
+
+  
+
+}
+
+
+
+.home-page.tablete{
+
+  .home-header{
+    .home-banner{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+        .search-section{
+          position: absolute;
+          bottom: 5vw;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+            @media (max-width: 638px) {
+                bottom: 0vw;  
+            }
+          .home-title {
+            width: 100%; 
+            text-align: center;
+            margin: 5px;
+          }
+          .search-form{
+            width: 40% !important;
+            margin: 40px auto;
+            @media (max-width: 638px) {
+              margin: 10px auto;
+            }
+          }
+          .search-page-select .ant-input-suffix .anticon {
+            width: 30px;
+            height: unset;
+            line-height: 1;
+            border-radius: 16px;
+          }
+          .search-page-select {
+            line-height: 2;
+            border-radius: 40px;
+            border: unset;
+            padding: 3px;
+            .ant-input-suffix {
+              margin-left: 0;
+              border-radius: 30px;
+              width: 22px;
+              justify-content: center;
+            }
+          }
+        }
+    }
+
+    .public__navigation{
+      .navigation_container{
+        position: absolute;
+      }
+    }
+
+  }
+  .ant-input-lg {
+    font-size: 14px;
+  }
+
+  .ant-btn > span {
+    display: block;
+    font-size: 12px;
+    line-height: -2;
+  }
+
+  .homepage-main-container .description{
+    .ant-btn {
+      opacity: 0.8;
+      width: unset !important;
+      margin-top: 10px !important;
+      border: 2px solid white;
+      font-weight: bold;
+      height: unset;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+    p {
+      margin-bottom: 5px;
+      font-size: 10px;
+      color: white;
+    }
+  }
+
+  .homepage-main-container .slider-header{
+
+    h3 {
+      font-size: 14px;
+      text-align: center;
+      width: 96%;
+    }
+    h2 {
+      font-size: 23px;
+      font-weight: 800;
+      margin: 0;
+    }
+  }
+
+  
+
+}
+
+
+
+.mobile-menu {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  //z-index: 21;
+  //z-index: 10000;
+  width: 100%;
+  position: relative;
+
+  .mobile-menu-container{
+    display: flex;
+    justify-content: space-between;
+    z-index: 10000;
+    background-color: #fff;
+  }
+
+  .logo a img {
+    height: 45px;
+  }
+  .logo {
+    padding: 10px 30px;
+  }
+  .ant-btn-primary {
+    margin: auto 15px;
+  }
+
+  
+}
+
+.drawer{ 
+  .ant-drawer-body {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 65px;
+  height: 68%;
+  padding: 26px;
+  border-top: 1px solid #d6d6d6;
+  }
+  .drawer-wrapper{
+    width: 100%;
+    .ant-collapse{
+        background-color: unset;
+        border: unset;
+        .ant-collapse-item{
+          border: unset;
+          .ant-collapse-header{
+            padding: 9px 16px;
+            padding-left: 40px;
+          }
+        }
+
+        .ant-collapse-content{
+          border: unset;
+          .ant-collapse-content-box{
+            padding: 0 35px;
+          }
+        }
+    }
+
+    .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {
+      padding: 9px 16px;
+      padding-left: 0;
+    }
+    
+    .sub-categories a {
+      padding: 8px 0;
+    }
+    
+    .sub-categories {
+        padding: 0px 25px;
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+  .drawer-wrapper>.ant-collapse>.ant-collapse-item>.ant-collapse-header {
+    font-weight: 900;
+  }
+}
+
+
+
 
 .mySwiper{
     .swiper-pagination-bullets.swiper-pagination-horizontal{
