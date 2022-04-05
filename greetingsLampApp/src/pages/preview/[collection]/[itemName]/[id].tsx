@@ -91,7 +91,7 @@ const Index = ({publicLayoutData,mainContent}) => {
     const routes = [...initialRoutes,{path:'',breadcrumbName:card.title}]
     const type = capitalize(card.cardType);
     return (
-      <PublicLayout data={publicLayoutData} title={`${card.title} - ${card.routeToCard.data[1].name} ${type} (free) | Greetings Lamp`} ContentResponsive={{ xs: 24, lg: 24 }} >
+      <PublicLayout data={publicLayoutData} title={`${card.title} - ${card.routeToCard.data[1].name} ${type} (free) | Greetings Lamp`} ContentResponsive={{ xs: 24}} >
         <>
           <PageHeader
             className="site-page-header"
@@ -116,9 +116,6 @@ const Index = ({publicLayoutData,mainContent}) => {
                 </div>
                 <div className="card-details">
                     <h2>{card.title} - {card.routeToCard.data[1].name} {card.type}</h2>
-                    <div className="download-button">
-                      <Button type="primary" onClick={()=>downloadImage(card)}>Download Image</Button>
-                    </div>
                     <div className="card-details-list">
                         <ul>
                           <li>description: {card.description}</li>
@@ -126,6 +123,9 @@ const Index = ({publicLayoutData,mainContent}) => {
                           <li>size: [ {card.dimensions.height}px , {card.dimensions.width}px ]</li>
                           <li>Tags: {card.tags.map((item)=>(<Tag color="magenta" key={item._id}>{item.name}</Tag>))}</li>
                         </ul>
+                    </div>
+                    <div className="download-button">
+                      <Button type="primary" onClick={()=>downloadImage(card)}>Download Image</Button>
                     </div>
                </div>
               </div>

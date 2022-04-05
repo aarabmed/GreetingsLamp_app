@@ -1,51 +1,81 @@
 import React, {useState,useRef, createRef, forwardRef} from "react";
 import Head from "next/head";
-import { BackTop ,Row,Col,Input, Select, Button} from "antd";
+import { Drawer, BackTop ,Row,Col,Input, Select, Button} from "antd";
 import Menu from 'components/header/components/top-menu'
 import CarouselCards from "components/slider";
 import Footer from "components/footer/Footer";
 import SearchFrom from "components/header/components/searchForm";
 import { useRouter } from "next/router";
-   
+import MobileNav from "components/header/mobile-nav";  
+import { DeviceType } from "common/deviceType";
+
 function BaseLayout(props) {
 
   const [menuLogo, setmenuLogo] = useState('/assets/images/greetingslamp-logo-white.png');
+  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const router = useRouter();
 
+  const mainPage = useRef(null)
   const menuRef = useRef(null);
   const videoBanner = useRef(null);
   const {headerData,mainContent} = props;
 
 
   function onScroll() {
-    
+    console.log('window.scrollY:',window.scrollY)
     const subMenu = Array.from(document.getElementsByClassName('ant-menu-submenu-popup'))
     subMenu.forEach((element:HTMLElement) => {
       element?element.style.position='fixed':null;
     });
+     
     
     if(window.scrollY>0){
        
        if(menuRef.current){
-          menuRef.current.classList.add('onScroll')
-          setmenuLogo('/assets/images/greetingslamp-logo.png')
-       }
+         menuRef.current.classList.add('onScroll')
+         setmenuLogo('/assets/images/greetingslamp-logo.png')
+         menuRef.current.classList.remove('fixed')
+        }
        
     }
     if(window.scrollY===0){
       if(menuRef.current){
-         const popUp = Array.from(document.getElementsByClassName('navigation_container'))
-          popUp.forEach((element:HTMLElement) => {
-             element?element.style.position='fixed':null;
-          }); 
           menuRef.current.classList.remove('onScroll')
+          const popUp = Array.from(document.getElementsByClassName('navigation_container'))
+          popUp.forEach((element:HTMLElement) => {
+            element?element.style.position='fixed':null;
+          }); 
           setmenuLogo('/assets/images/greetingslamp-logo-white.png')
+          menuRef.current.classList.add('fixed')
         }
     }
   }
 
-
+const windowResize = ()=>{
+  /* console.log('window.innerWidth:',window.innerWidth<600)
+  if(window.innerWidth<600){
+     mainPage.current.classList.remove('tablete')
+     mainPage.current.classList.add('mobile')
+     setIsMobile(true)
+  }else if(window.innerWidth>600 && window.innerWidth<1025){
+    console.log('checkIsmobale <1025:',isMobile)
+    mainPage.current.classList.remove('mobile')
+    mainPage.current.classList.add('tablete')
+    setIsMobile(true)
+  }else if(window.innerWidth>1025){
+    console.log('checkIsmobale:',isMobile)
+    mainPage.current.classList.remove('mobile')
+    mainPage.current.classList.remove('tablete')
+    setIsMobile(false)
+    menuRef.current.classList.add('fixed') */
+    /* const popUp = Array.from(document.getElementsByClassName('navigation_container'))
+    popUp.forEach((element:HTMLElement) => {
+       element?element.style.position='fixed':null;
+    });  
+  }*/
+}
   
 
 const onMouseOverEvent =()=>{
@@ -71,6 +101,8 @@ const onMouseLeaveEvent =()=>{
 
 
 
+
+
 React.useEffect(()=>{
   videoBanner.current.src="https://ik.imagekit.io/gl/videos/home-banner-video_x-OMJLTyv.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1648670813374"
   videoBanner.current.loop=true;
@@ -78,9 +110,12 @@ React.useEffect(()=>{
   videoBanner.current.muted=true;
   videoBanner.current.play()
   onScroll();
+  windowResize();
+  window.onresize = windowResize
   window.onscroll = onScroll
 },[]) 
 
+const device = DeviceType();
 const submitSearch =({search})=>{
   return router.push({pathname:'/search',query:{q:search}})
 }
@@ -95,16 +130,43 @@ const carouselInvitationsProps =  {
   subTitle:'Save the date with this collection of printable invitations.',
   items:mainContent.populatedInvitations
 }
+
+
+/* const Navigation = ({mobile})=>{
+    console.log('isMobile:',mobile)
+    if(mobile){
+      return <div className="mobile-menu">
+          <div className="logo">
+                  <Link href={"/"}>
+                    <a>
+                      <img 
+                        height={45}
+                        src="/assets/images/greetingslamp-logo.png"
+                        alt="Logo"
+                      />
+                    </a>
+                  </Link>
+          </div>
+          <Button type="primary" onClick={showDrawer} style={{ marginBottom: 16 }}>
+            {React.createElement(drawerVisible?MenuFoldOutlined:MenuUnfoldOutlined)}
+          </Button>
+      </div>
+    }
+    return <Menu homepage={true} Elements={headerData.menuData} myRef={menuRef} onMouseOver={onMouseOverEvent} onMouseLeave={onMouseLeaveEvent} logo={menuLogo} /> 
+} */
+  
+  const Navigation = ()=> device ?<div className="mobile-menu"><MobileNav menuData={headerData.menuData}/></div>
+  : <Menu homepage={true} Elements={headerData.menuData} myRef={menuRef} onMouseOver={onMouseOverEvent} onMouseLeave={onMouseLeaveEvent} logo={menuLogo} />
+
   return (
     <>
     <Head><title>Free invitations and cards | Greetings Lamp</title></Head>
-    <div className="home-page">
+    <div className={`home-page ${device}`} ref={mainPage}>
       <div className="home-header">
-         <Menu homepage={true} Elements={headerData.menuData} myRef={menuRef} onMouseOver={onMouseOverEvent} onMouseLeave={onMouseLeaveEvent} logo={menuLogo} /> 
           <div className="home-banner"> 
+            <Navigation/>
             <video ref={videoBanner}>
             </video>
-            
             <div className="search-section">
               <div className="home-title">
                 <h1> Live every moment of your life <br/> Celebrate every Event with loved onces</h1>
@@ -130,7 +192,7 @@ const carouselInvitationsProps =  {
           <div className="invitations-section" >
               <div className="description">
                 <h3>Invitation Cards</h3>
-                <p>Browse our wide selection of online invitations cards and put your <br/>wedding, celebration, grand opening, or any other special event <br/> in the spotlight</p>
+                <p>Browse our wide selection of online invitations cards and put your wedding, celebration, grand opening, or any other special event in the spotlight</p>
                 <Button shape="round" ghost onClick={()=>router.push('/invitations')}>Explore invitations</Button>
               </div>
               <div className="image">

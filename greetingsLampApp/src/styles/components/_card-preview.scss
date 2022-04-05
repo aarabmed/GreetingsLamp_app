@@ -1,6 +1,6 @@
 .card-preview-container {
     display: flex;
-    flex-direction: row;
+    //flex-direction: row;
     height: 100%;
 }
 
@@ -21,14 +21,13 @@
     align-items: center;
     button{
         border-radius: 8px;
-        width: 60%;
         height: 45px;
         box-shadow: 0px 4px 6px 0px #00000042;
     }
 }
 
 .preview-wrapp {
-    width: 65vw;
+    width: 100%;
     //height: 100vh;
     margin: auto;
     padding: 30px 30px;
@@ -36,8 +35,10 @@
 
 .card-image {
     padding: 5px;
-    width: 430px;
+    min-width: 430px;
     height: 490px;
+    width: 20vw;
+    margin: auto;
 }
 
 .ant-image {
@@ -48,9 +49,80 @@
 }
 .card-envelope {
    // position: absolute;
-    width: 390px;
+    width: 100%;
+    min-width: 390px;
     transform: rotate(-5deg);
     img{
         width: inherit;
+    }
+}
+
+.tablete{
+    @media (max-width: 890px){
+        .card-preview-container {
+            flex-flow: column;
+        }
+    }
+    @media (max-width: 480px){
+        .card-image {
+            padding: 5px;
+            min-width: 359px;
+            height: 490px;
+            width: 100%;
+            margin: auto;
+        }
+        .ant-image {
+            left: 153px;
+        }
+
+        .card-envelope {
+            width: 90%;
+            min-width: 393px;
+            transform: rotate(-5deg);
+        }
+    }
+}
+
+.mobile{
+    .ant-image {
+        z-index: 8;
+        box-shadow: #6d6d6d59 0px 1px 16px 0px;
+        left: 130px;
+        bottom: 350px;
+    }
+    .card-image {
+        padding: 5px;
+        min-width: 338px;
+        height: 490px;
+        margin: auto;
+    }
+
+    .card-envelope {
+        width: 100%;
+        min-width: 312px;
+        transform: rotate(-5deg);
+    }
+    .card-preview-container {
+        flex-flow: column;
+    }
+    .preview-wrapp {
+        width: 100%;
+        margin: auto;
+        padding: 30px 0px;
+    }
+
+    @media (max-width: 290px){
+        .card-preview-container {
+            flex-flow: column;
+        }
+
+        .card-envelope {
+            left: -50px;
+            position: relative;
+        }
+
+        .ant-image {
+            left: 39px;
+        }
     }
 }

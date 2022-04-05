@@ -61,7 +61,7 @@ export default function index({publicLayoutData,mainContent,menuData}) {
   const { bannerData } = publicLayoutData.headerData
 
   return (
-    <PublicLayout data={publicLayoutData} title={`${bannerData.title} (free) | Greetings Lamp`} ContentResponsive={{ xs: 24, lg: 20 }} >
+    <PublicLayout data={publicLayoutData} title={`${bannerData.title} (free) | Greetings Lamp`} ContentResponsive={{ xs: 24}} >
         <PageHeader
             className="site-page-header"
             breadcrumb={{routes:currentRoute,itemRender:(route,params,routes)=>routes[routes.length-1].path!==route.path?<Link href={`/${route.path}`}>{route.breadcrumbName}</Link>:<><span style={{fontWeight: 600}}>{route.breadcrumbName}</span><span className="breadcump-result">{mainContent.totalResults} results</span> </>}}
