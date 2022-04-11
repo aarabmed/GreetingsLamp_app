@@ -37,7 +37,7 @@ class MyDocument extends Document {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Head>
           <link rel="icon" href="/assets/gl-nav-icon.png" />
-          <link rel="prefetch" as="video" type="video/mp4" href="https://ik.imagekit.io/gl/videos/home-banner-video_x-OMJLTyv.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1648670813374"></link>
+          <link rel="prefetch" as="video" type="video/webm" href="/assets/videos/home-banner-video.webm"></link>
           <link
             href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css"
             rel="stylesheet"

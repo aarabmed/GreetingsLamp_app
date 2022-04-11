@@ -104,7 +104,7 @@ const onMouseLeaveEvent =()=>{
 
 
 React.useEffect(()=>{
-  videoBanner.current.src="https://ik.imagekit.io/gl/videos/home-banner-video_x-OMJLTyv.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1648670813374"
+  videoBanner.current.src="/assets/videos/home-banner-video.webm"
   videoBanner.current.loop=true;
   videoBanner.current.autoplay=true;
   videoBanner.current.muted=true;
@@ -132,28 +132,6 @@ const carouselInvitationsProps =  {
 }
 
 
-/* const Navigation = ({mobile})=>{
-    console.log('isMobile:',mobile)
-    if(mobile){
-      return <div className="mobile-menu">
-          <div className="logo">
-                  <Link href={"/"}>
-                    <a>
-                      <img 
-                        height={45}
-                        src="/assets/images/greetingslamp-logo.png"
-                        alt="Logo"
-                      />
-                    </a>
-                  </Link>
-          </div>
-          <Button type="primary" onClick={showDrawer} style={{ marginBottom: 16 }}>
-            {React.createElement(drawerVisible?MenuFoldOutlined:MenuUnfoldOutlined)}
-          </Button>
-      </div>
-    }
-    return <Menu homepage={true} Elements={headerData.menuData} myRef={menuRef} onMouseOver={onMouseOverEvent} onMouseLeave={onMouseLeaveEvent} logo={menuLogo} /> 
-} */
   
   const Navigation = ()=> device ?<div className="mobile-menu"><MobileNav menuData={headerData.menuData}/></div>
   : <Menu homepage={true} Elements={headerData.menuData} myRef={menuRef} onMouseOver={onMouseOverEvent} onMouseLeave={onMouseLeaveEvent} logo={menuLogo} />
