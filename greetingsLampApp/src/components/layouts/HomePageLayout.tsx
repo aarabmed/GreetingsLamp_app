@@ -1,6 +1,6 @@
 import React, {useState,useRef, createRef, forwardRef} from "react";
 import Head from "next/head";
-import { Drawer, BackTop ,Row,Col,Input, Select, Button} from "antd";
+import { BackTop, Button} from "antd";
 import Menu from 'components/header/components/top-menu'
 import CarouselCards from "components/slider";
 import Footer from "components/footer/Footer";
@@ -8,12 +8,12 @@ import SearchFrom from "components/header/components/searchForm";
 import { useRouter } from "next/router";
 import MobileNav from "components/header/mobile-nav";  
 import { DeviceType } from "common/deviceType";
+import { HeaderVideo } from "common/apiEndpoints";
 
 function BaseLayout(props) {
 
   const [menuLogo, setmenuLogo] = useState('/assets/images/greetingslamp-logo-white.png');
-  const [drawerVisible, setDrawerVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [displayBanner, setDisplayBanner] = useState(true);
 
   const router = useRouter();
 
@@ -24,7 +24,6 @@ function BaseLayout(props) {
 
 
   function onScroll() {
-    console.log('window.scrollY:',window.scrollY)
     const subMenu = Array.from(document.getElementsByClassName('ant-menu-submenu-popup'))
     subMenu.forEach((element:HTMLElement) => {
       element?element.style.position='fixed':null;
@@ -53,29 +52,6 @@ function BaseLayout(props) {
     }
   }
 
-const windowResize = ()=>{
-  /* console.log('window.innerWidth:',window.innerWidth<600)
-  if(window.innerWidth<600){
-     mainPage.current.classList.remove('tablete')
-     mainPage.current.classList.add('mobile')
-     setIsMobile(true)
-  }else if(window.innerWidth>600 && window.innerWidth<1025){
-    console.log('checkIsmobale <1025:',isMobile)
-    mainPage.current.classList.remove('mobile')
-    mainPage.current.classList.add('tablete')
-    setIsMobile(true)
-  }else if(window.innerWidth>1025){
-    console.log('checkIsmobale:',isMobile)
-    mainPage.current.classList.remove('mobile')
-    mainPage.current.classList.remove('tablete')
-    setIsMobile(false)
-    menuRef.current.classList.add('fixed') */
-    /* const popUp = Array.from(document.getElementsByClassName('navigation_container'))
-    popUp.forEach((element:HTMLElement) => {
-       element?element.style.position='fixed':null;
-    });  
-  }*/
-}
   
 
 const onMouseOverEvent =()=>{
@@ -100,22 +76,22 @@ const onMouseLeaveEvent =()=>{
 }
 
 
+const device = DeviceType();
 
 
 
 React.useEffect(()=>{
-  videoBanner.current.src="/assets/videos/home-banner-video.webm"
+  setDisplayBanner(false);
+  videoBanner.current.type="video/webm"
+  videoBanner.current.src=HeaderVideo
   videoBanner.current.loop=true;
   videoBanner.current.autoplay=true;
   videoBanner.current.muted=true;
   videoBanner.current.play()
   onScroll();
-  windowResize();
-  window.onresize = windowResize
   window.onscroll = onScroll
 },[]) 
 
-const device = DeviceType();
 const submitSearch =({search})=>{
   return router.push({pathname:'/search',query:{q:search}})
 }
@@ -143,7 +119,8 @@ const carouselInvitationsProps =  {
       <div className="home-header">
           <div className="home-banner"> 
             <Navigation/>
-            <video ref={videoBanner}>
+            {displayBanner?<img src="/assets/images/banners/home-banner-video.jpg" style={{width:'100%'}}/>:null}
+            <video ref={videoBanner} >
             </video>
             <div className="search-section">
               <div className="home-title">

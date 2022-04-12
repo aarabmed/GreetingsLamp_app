@@ -1,12 +1,30 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
 import HomePage from '../components/layouts/HomePageLayout'
 import { FetchMenu } from 'common/utils';
+import SplashPage from 'components/loader/loading';
+
 export default function Index(props) {
-  return (
-    <HomePage {...props} />
-  );
+  const [visible, setVisible] = useState(true);
+  const [className, setClass] = useState(''); 
+  useEffect(()=>{
+    setTimeout(() => {
+      setClass('splashFadeOut')
+      setTimeout(() => {
+        setVisible(false)
+      }, 300);
+    }, 8500);
+  },[])
+
+
+
+
+
+  return <>
+     {visible?<div className={'splash '+className}><SplashPage/></div>:null}
+     <HomePage {...props}/>
+  </>
 }
 
 

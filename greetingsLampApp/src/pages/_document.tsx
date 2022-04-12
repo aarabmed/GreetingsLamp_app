@@ -6,7 +6,6 @@ class MyDocument extends Document {
   static async  getInitialProps(ctx) {
       const sheet = new ServerStyleSheet();
       const originalRenderPage = ctx.renderPage;
-
       try {
         ctx.renderPage = () =>
           originalRenderPage({
@@ -27,17 +26,17 @@ class MyDocument extends Document {
       } finally {
         sheet.seal();
       }
+
   }
+
   
-  /* const initialProps = await Document.getInitialProps(ctx);
-  return { ...initialProps }; */
+
   render() {
     return (
       <Html lang="en">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Head>
           <link rel="icon" href="/assets/gl-nav-icon.png" />
-          <link rel="prefetch" as="video" type="video/webm" href="/assets/videos/home-banner-video.webm"></link>
           <link
             href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css"
             rel="stylesheet"

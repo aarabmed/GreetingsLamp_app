@@ -10,4 +10,5 @@ module.exports={
     SUB_CATEGORIES_CHILD:'/api/sub-items',
     SIGNUP:'/api/account/signup',
     LOGIN:'/api/account/login',
+    HeaderVideo:'/api/video/home-banner-video'
 }

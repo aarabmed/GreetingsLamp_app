@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import  { useRouter } from 'next/router';
 import PublicLayout from "components/layouts/PublicLayout";
 import Page404 from "components/layouts/Page404"

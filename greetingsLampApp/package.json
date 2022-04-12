@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev":"next",
     "build": "next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build --prod"
@@ -38,6 +37,7 @@
     "next": "^12.1.0",
     "next-compose-plugins": "^2.2.1",
     "next-connect": "^0.10.0",
+    "next-images": "^1.8.4",
     "next-with-less": "^2.0.5",
     "nextjs-redirect": "^5.0.0",
     "node-fetch": "^2.6.1",
@@ -55,13 +55,12 @@
     "swiper": "^8.0.7",
     "swr": "^0.4.0",
     "uuid": "^8.3.0",
-    "webpack": "^4.0.0",
-    "yarn": "^1.22.17",
-    "next-images": "^1.8.4"
+    "webpack": "^4.0.0"
   },
   "devDependencies": {
     "@types/file-saver": "^2.0.5",
     "@types/node": "^14.14.28",
+    "@types/react-dom": "^18.0.0",
     "typescript": "^4.3.2"
   }
 }
