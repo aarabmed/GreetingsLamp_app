@@ -12,13 +12,14 @@
             height: 100%;
             overflow: hidden; */
             display: flex;
+            flex-flow: column;
             video{
               width: 100%;
               z-index: -1;
             }
 
             .home-title{
-                width: 775px;
+                width: 100%;
                 text-align: center;
                 margin: 5px;
                 h1{

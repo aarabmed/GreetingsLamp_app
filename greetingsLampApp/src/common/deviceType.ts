@@ -5,12 +5,9 @@ export function DeviceType(): string {
 
   useEffect(() => {
     const handler = () => {
-      console.log('screen.orientation:',screen.orientation)
 
       const width = document.documentElement.clientWidth //Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-      console.log('window.innerWidth::',window.innerWidth)
-      console.log('document.documentElement.clientWidth::',document.documentElement.clientWidth)
-
+  
       if(width<=425){
          return setClassname('mobile')
       }

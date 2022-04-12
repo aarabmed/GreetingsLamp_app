@@ -22,8 +22,6 @@ export default React.memo(({menuData}:NavProps)=>{
     const onClose = () => {
         setDrawerVisible(false)
     };
-
-    console.log('menuData>:',menuData)
       return<div className="mobile-menu-container">
             
             <div className="logo">
