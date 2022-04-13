@@ -83,10 +83,11 @@ const device = DeviceType();
 React.useEffect(()=>{
   setDisplayBanner(false);
 
-  videoBanner.current.type="video/webm"
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    videoBanner.current.type="video/mp4"
     videoBanner.current.src='/api/video/home-banner-video-mobile'
   }else{
+    videoBanner.current.type="video/webm"
     videoBanner.current.src=HeaderVideo
   }
 
@@ -96,7 +97,7 @@ React.useEffect(()=>{
   videoBanner.current.play()
   onScroll();
   window.onscroll = onScroll
-},[device]) 
+},[]) 
 
 const submitSearch =({search})=>{
   return router.push({pathname:'/search',query:{q:search}})
