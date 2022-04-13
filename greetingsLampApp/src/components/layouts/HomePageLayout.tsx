@@ -82,15 +82,21 @@ const device = DeviceType();
 
 React.useEffect(()=>{
   setDisplayBanner(false);
+
   videoBanner.current.type="video/webm"
-  videoBanner.current.src=HeaderVideo
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    videoBanner.current.src='/api/video/home-banner-video-mobile'
+  }else{
+    videoBanner.current.src=HeaderVideo
+  }
+
   videoBanner.current.loop=true;
   videoBanner.current.autoplay=true;
   videoBanner.current.muted=true;
   videoBanner.current.play()
   onScroll();
   window.onscroll = onScroll
-},[]) 
+},[device]) 
 
 const submitSearch =({search})=>{
   return router.push({pathname:'/search',query:{q:search}})
@@ -120,7 +126,7 @@ const carouselInvitationsProps =  {
           <div className="home-banner"> 
             <Navigation/>
             {displayBanner?<img src="/assets/images/banners/home-banner-video.jpg" style={{width:'100%'}}/>:null}
-            <video ref={videoBanner} >
+            <video ref={videoBanner} autoPlay>
             </video>
             <div className="search-section">
               <div className="home-title">
