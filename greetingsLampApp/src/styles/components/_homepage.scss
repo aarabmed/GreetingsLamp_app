@@ -13,9 +13,16 @@
             overflow: hidden; */
             display: flex;
             flex-flow: column;
-            video{
-              width: 100%;
-              z-index: -1;
+       
+            .BackgroundVideo{
+              position: unset !important;
+              video{
+                position: unset !important;
+                width: 100% !important;
+                height: 100%!important;
+                z-index: 1;
+                margin: -2px 0;
+              }
             }
 
             .home-title{
@@ -84,6 +91,7 @@
 
 
     .homepage-main-container{
+      margin-top: -7px;
       .slider-section{
           //background: linear-gradient(45deg,#2af598 0%,#009efd 100%);
           height: 500px;

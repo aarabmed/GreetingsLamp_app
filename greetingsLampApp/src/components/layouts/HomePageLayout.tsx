@@ -1,5 +1,6 @@
 import React, {useState,useRef, createRef, forwardRef} from "react";
 import Head from "next/head";
+import VideoPlayer from "react-background-video-player";
 import { BackTop, Button} from "antd";
 import Menu from 'components/header/components/top-menu'
 import CarouselCards from "components/slider";
@@ -81,20 +82,7 @@ const device = DeviceType();
 
 
 React.useEffect(()=>{
-  setDisplayBanner(false);
-
-  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-    videoBanner.current.type="video/mp4"
-    videoBanner.current.src='/api/video/home-banner-video-mobile'
-  }else{
-    videoBanner.current.type="video/webm"
-    videoBanner.current.src=HeaderVideo
-  }
-
-  videoBanner.current.loop=true;
-  videoBanner.current.autoplay=true;
-  videoBanner.current.muted=true;
-  videoBanner.current.play()
+  
   onScroll();
   window.onscroll = onScroll
 },[]) 
@@ -126,9 +114,12 @@ const carouselInvitationsProps =  {
       <div className="home-header">
           <div className="home-banner"> 
             <Navigation/>
-            {displayBanner?<img src="/assets/images/banners/home-banner-video.jpg" style={{width:'100%'}}/>:null}
-            <video ref={videoBanner} autoPlay>
-            </video>
+            <VideoPlayer
+              className="video"
+              src={"/assets/videos/banner-video.mp4"}
+              autoPlay={true}
+              muted={true}
+            />
             <div className="search-section">
               <div className="home-title">
                 <h1> Live every moment of your life <br/> Celebrate every Event with loved onces</h1>

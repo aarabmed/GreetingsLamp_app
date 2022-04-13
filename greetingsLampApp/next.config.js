@@ -27,6 +27,7 @@ const WithLess =withLess({
   
 })
 
+//        destination: 'https://greetingslamp-api.herokuapp.com/:path*',
 
 const nextConfig = {
   async rewrites() {
