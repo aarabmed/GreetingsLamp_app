@@ -9,12 +9,11 @@ import SearchFrom from "components/header/components/searchForm";
 import { useRouter } from "next/router";
 import MobileNav from "components/header/mobile-nav";  
 import { DeviceType } from "common/deviceType";
-import { HeaderVideo } from "common/apiEndpoints";
 
 function BaseLayout(props) {
 
   const [menuLogo, setmenuLogo] = useState('/assets/images/greetingslamp-logo-white.png');
-  const [displayBanner, setDisplayBanner] = useState(true);
+  const [isMobile, setIsmobile] = useState(undefined);
 
   const router = useRouter();
 
@@ -82,7 +81,10 @@ const device = DeviceType();
 
 
 React.useEffect(()=>{
-  
+  if( typeof navigator !== 'undefined'){
+    const isMob = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    setIsmobile(isMob)
+  }
   onScroll();
   window.onscroll = onScroll
 },[]) 
@@ -114,12 +116,18 @@ const carouselInvitationsProps =  {
       <div className="home-header">
           <div className="home-banner"> 
             <Navigation/>
+            {!isMobile?
             <VideoPlayer
-              className="video"
-              src={"/assets/videos/banner-video.mp4"}
-              autoPlay={true}
-              muted={true}
-            />
+            className="video"
+            src={"/assets/videos/banner-video.mp4"}
+            autoPlay={true}
+            muted={true}
+            />:
+            <div className="banner-image">
+              <img src="/assets/images/banner.png" />
+            </div>
+            }
+            
             <div className="search-section">
               <div className="home-title">
                 <h1> Live every moment of your life <br/> Celebrate every Event with loved onces</h1>

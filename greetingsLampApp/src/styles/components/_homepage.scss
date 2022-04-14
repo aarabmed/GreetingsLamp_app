@@ -13,7 +13,11 @@
             overflow: hidden; */
             display: flex;
             flex-flow: column;
-       
+            .banner-image{
+              img{
+                width: 100%;
+              }
+            }
             .BackgroundVideo{
               position: unset !important;
               video{
@@ -242,6 +246,7 @@
       position: relative;
 
         .search-section{
+          top: calc(11vw + 70px);
           position: absolute;
           bottom: 0vw;
           width: 100%;
@@ -344,6 +349,7 @@
       flex-direction: column;
       position: relative;
         .search-section{
+          top: calc(11vw + 45px);
           position: absolute;
           bottom: 5vw;
           width: 100%;
@@ -453,7 +459,7 @@
   //z-index: 21;
   //z-index: 10000;
   width: 100%;
-  position: relative;
+  position: absolute;
 
   .mobile-menu-container{
     display: flex;
@@ -584,7 +590,6 @@
         pointer-events: unset;
     }
 }
-
 
 
 
