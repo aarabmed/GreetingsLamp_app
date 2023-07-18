@@ -33,7 +33,6 @@
     "http-proxy-middleware": "^1.0.6",
     "imagekitio-react": "^1.1.0",
     "jwt-decode": "^3.1.2",
-    "less": "^3.12.2",
     "localforage": "^1.10.0",
     "mkdirp": "^1.0.4",
     "moment": "^2.29.1",
